@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentine's love story · memories</title>
+    <title>Valentine's love story · TSoul · Best of Me</title>
     <!-- fonts & styles -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* style.css – Valentine dream + memories grid */
+        /* style.css – Valentine dream + memories grid + YES button */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         body { background: linear-gradient(145deg, #ffe6f0 0%, #ffb6c1 40%, #fff0f5 100%); min-height: 100vh; overflow-x: hidden; position: relative; }
         /* floating hearts + petals (background animation) */
@@ -49,60 +49,14 @@
         .flip-front, .flip-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 30px; padding: 20px; display: flex; align-items: center; justify-content: center; flex-direction: column; background: white; border: 3px solid #ffb7c5; }
         .flip-front { background: #ffe9f0; color: #b23b3b; }
         .flip-back { background: #ffb6c1; color: #7a1f3b; transform: rotateY(180deg); font-family: 'Great Vibes'; font-size: 1.6rem; }
-        /* ===== NEW MEMORIES GRID SECTION ===== */
-        .memories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 30px;
-            margin-top: 25px;
-        }
-        .memory-item {
-            background: white;
-            border-radius: 35px;
-            padding: 16px 16px 20px;
-            box-shadow: 0 20px 30px rgba(210, 70, 110, 0.25);
-            border: 3px solid #ffe2ec;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer;
-        }
-        .memory-item:hover {
-            transform: scale(1.03) translateY(-8px);
-            box-shadow: 0 30px 40px #ffa5b9, 0 0 0 4px white, 0 0 0 8px #ffb7c5;
-        }
-        .memory-img {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    border-radius: 30px;
-    border: 4px solid #ffb7c5;
-    background: #ffe2eb;
-    transition: 0.2s;
-    display: block; /* ensures image is visible */
-}
-        .memory-item:hover .memory-img {
-            border-color: #ff4d6d;
-        }
-        .memory-caption {
-            font-family: 'Great Vibes', cursive;
-            font-size: 1.6rem;
-            color: #b02c4a;
-            margin-top: 15px;
-            text-align: center;
-            line-height: 1.3;
-            background: rgba(255, 240, 245, 0.7);
-            padding: 8px 5px;
-            border-radius: 50px;
-        }
-        .memories-intro {
-            font-size: 1.5rem;
-            font-family: 'Great Vibes', cursive;
-            color: #a53860;
-            margin-bottom: 20px;
-            text-align: center;
-            background: rgba(255,255,240,0.3);
-            padding: 10px 20px;
-            border-radius: 60px;
-        }
+        /* MEMORIES GRID */
+        .memories-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; margin-top: 25px; }
+        .memory-item { background: white; border-radius: 35px; padding: 16px 16px 20px; box-shadow: 0 20px 30px rgba(210, 70, 110, 0.25); border: 3px solid #ffe2ec; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; }
+        .memory-item:hover { transform: scale(1.03) translateY(-8px); box-shadow: 0 30px 40px #ffa5b9, 0 0 0 4px white, 0 0 0 8px #ffb7c5; }
+        .memory-img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 30px; border: 4px solid #ffb7c5; background: #ffe2eb; transition: 0.2s; display: block; }
+        .memory-item:hover .memory-img { border-color: #ff4d6d; }
+        .memory-caption { font-family: 'Great Vibes', cursive; font-size: 1.6rem; color: #b02c4a; margin-top: 15px; text-align: center; line-height: 1.3; background: rgba(255, 240, 245, 0.7); padding: 8px 5px; border-radius: 50px; }
+        .memories-intro { font-size: 1.5rem; font-family: 'Great Vibes', cursive; color: #a53860; margin-bottom: 20px; text-align: center; background: rgba(255,255,240,0.3); padding: 10px 20px; border-radius: 60px; }
         /* interactive buttons row */
         .button-party { display: flex; flex-wrap: wrap; gap: 18px; justify-content: center; }
         .fun-btn { background: #ff98a8; border: none; border-radius: 50px; padding: 18px 25px; font-size: 1.3rem; color: #2f0f1f; font-weight: 600; box-shadow: 0 8px 0 #b23b5c; transition: 0.1s ease; cursor: pointer; flex: 1 0 auto; border: 2px solid white; }
@@ -112,37 +66,109 @@
         .quiz-option { background: #ffe2eb; margin: 10px; padding: 12px; border-radius: 40px; border: 2px solid #ff8aab; font-weight: 600; cursor: pointer; transition: 0.3s; }
         .quiz-option:hover { background: #ffb3c6; transform: scale(1.02); }
         .quiz-feedback { font-size: 1.7rem; font-weight: bold; color: #c44569; }
-        /* final love letter */
+        /* final love letter with YES/NO buttons */
         .love-letter-card { background: #ffe5ec; border: 10px double #ff4d6d; border-radius: 80px 20px 80px 20px; padding: 35px; text-align: center; box-shadow: 0 0 40px #fbb1c2; animation: glowPulse 3s infinite; }
         @keyframes glowPulse { 0% { box-shadow: 0 0 20px #fea1a1; } 50% { box-shadow: 0 0 55px #ff6380; } }
         .letter-text { font-size: 1.2rem; margin: 30px 0; background: rgba(255,240,245,0.9); padding: 25px; border-radius: 45px; }
-        .yes-no { display: flex; gap: 40px; justify-content: center; align-items: center; flex-wrap: wrap; }
-        #no-btn { position: relative; transition: 0.2s; background: #a53860; }
-        #no-btn:hover { background: #7a1f3f; }
+        /* YES/NO buttons container */
+        .yes-no-buttons {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 30px 0 20px;
+            position: relative;
+            z-index: 1000;
+        }
+        #yes-valentine-btn {
+            background: linear-gradient(45deg, #ff4d6d, #ff8fa3);
+            font-size: 2rem;
+            padding: 15px 60px;
+            border: 4px solid white;
+            box-shadow: 0 10px 25px rgba(255, 77, 109, 0.5);
+            transition: all 0.3s;
+            min-width: 220px;
+            cursor: pointer;
+            position: relative;
+            z-index: 1001;
+        }
+        #yes-valentine-btn:hover {
+            transform: scale(1.15) translateY(-5px);
+            box-shadow: 0 20px 30px #ff4d6d;
+            background: #ff3355;
+        }
+        #no-valentine-btn {
+            background: #a53860;
+            font-size: 2rem;
+            padding: 15px 60px;
+            border: 4px solid white;
+            transition: all 0.3s;
+            min-width: 220px;
+            cursor: pointer;
+            position: relative;
+            z-index: 1001;
+        }
+        #no-valentine-btn:hover {
+            background: #7a1f3f;
+            transform: scale(1.05);
+        }
+        .valentine-celebration {
+            animation: celebrate 1s ease;
+        }
+        @keyframes celebrate {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); background: #ffe5ec; }
+            100% { transform: scale(1); }
+        }
+        #valentine-response {
+            font-size: 2.2rem;
+            margin-top: 30px;
+            min-height: 100px;
+            font-family: 'Great Vibes', cursive;
+            color: #c44569;
+            text-shadow: 0 0 10px white;
+            padding: 20px;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 10px 25px rgba(255, 77, 109, 0.5); }
+            50% { transform: scale(1.2); background: #ff3355; box-shadow: 0 20px 35px #ff4d6d; }
+            100% { transform: scale(1); box-shadow: 0 10px 25px rgba(255, 77, 109, 0.5); }
+        }
+        .pulse-animation {
+            animation: pulse 1s infinite;
+        }
         footer { text-align: center; margin: 60px 0 20px; color: #a63c5a; font-weight: 500; }
         /* confetti overlay */
         .confetti-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999; }
         /* responsive */
-        @media (max-width: 700px) { h1 { font-size: 3rem; } .btn { font-size: 1rem; } }
+        @media (max-width: 700px) { 
+            h1 { font-size: 3rem; } 
+            .btn { font-size: 1rem; }
+            #yes-valentine-btn, #no-valentine-btn { font-size: 1.5rem; padding: 12px 30px; min-width: 160px; }
+        }
     </style>
 </head>
 <body>
     <!-- floating background elements -->
     <div class="floating-hearts" id="floating-hearts"></div>
     <div class="petals" id="petals"></div>
-    <button id="music-toggle"><i class="fas fa-music"></i></button>
     
-    <!-- NEW MUSIC: Best of Me (Spotify embed replaced with direct mp3 to avoid CORS / autoplay issues, but using a romantic instrumental that feels like "Best of Me") -->
-    <audio id="bg-music" loop preload="auto" src="audi.mp3" type="audio/mp3"></audio> <!-- using SoundHelix track 10 (soft piano/romantic) as fallback; perfectly fits "Best of Me" mood. -->
- 
-
+    <!-- TSoul - Best of Me (audio only) -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="audi.mp3" type="audio/mpeg">
+        <!-- Fallback if audio doesn't load -->
+        Your browser does not support the audio element.
+    </audio>
+    
+    <button id="music-toggle"><i class="fas fa-music"></i></button>
 
     <div class="site-wrapper">
         <!-- 1. LANDING PAGE (Welcome Screen) -->
         <section id="landing" class="active-section">
             <div style="text-align: center;">
                 <span class="teddy">🧸💖🧸</span>
-                <h1>Happy Valentine’s Day My Love ❤️</h1>
+                <h1>Happy Valentine's Day My Love ❤️</h1>
                 <p style="font-size: 1.7rem; font-family: 'Great Vibes';">This is a small surprise made just for you.</p>
                 <div style="margin: 40px 0 20px;">
                     <button class="btn" id="beginBtn">Click to Begin 💕</button>
@@ -151,11 +177,11 @@
             </div>
         </section>
 
-        <!-- 2. SECRET CODE LOCK SCREEN (hidden initially) -->
+        <!-- 2. SECRET CODE LOCK SCREEN -->
         <section id="code-lock" class="hidden-section">
             <h2>💌 Secret Love Lock 💌</h2>
             <p style="font-size: 2rem;">Enter the Secret Love Code</p>
-            <input type="text" id="code-input" placeholder="Our Anniversary" maxlength="10">
+            <input type="text" id="code-input" placeholder="24'08'23" maxlength="10">
             <br>
             <button class="btn" id="unlock-btn">Unlock 💕</button>
             <p id="code-feedback" class="wrong-msg" style="min-height: 40px;"></p>
@@ -167,19 +193,17 @@
             <!-- Love Message Cards -->
             <section id="message-cards">
                 <h2>💖 flip & feel the love 💖</h2>
-                <div class="card-grid" id="card-grid">
-                    <!-- JS will generate cards --> 
-                </div>
+                <div class="card-grid" id="card-grid"></div>
             </section>
 
-            <!-- ===== NEW MEMORIES SECTION (replaces timeline) ===== -->
+            <!-- MEMORIES SECTION with your images -->
             <section id="memories-section">
                 <h2>💖 Memories 💖</h2>
                 <div class="memories-intro">"Every photo is a piece of my heart, a whisper of us." 🌸</div>
                 <div class="memories-grid" id="memories-grid-container"></div>
             </section>
 
-            <!-- Interactive Buttons (unchanged) -->
+            <!-- Interactive Buttons -->
             <section id="fun-buttons">
                 <h2>🎁 little surprises 🎁</h2>
                 <div class="button-party">
@@ -191,7 +215,7 @@
                 <div id="fun-feedback" style="text-align: center; font-size: 2rem; margin-top: 25px;"></div>
             </section>
 
-            <!-- Love Quiz Game (unchanged) -->
+            <!-- Love Quiz -->
             <section id="quiz">
                 <h2>💘 love quiz 💘</h2>
                 <div class="quiz-card">
@@ -203,7 +227,7 @@
                 </div>
             </section>
 
-            <!-- Final Love Letter Page (unchanged) -->
+            <!-- Final Love Letter with YES/NO buttons -->
             <section id="final-letter">
                 <h2>💌 a letter for you 💌</h2>
                 <div class="love-letter-card">
@@ -211,22 +235,31 @@
                     <div class="letter-text">
                         My dearest love,<br> Every moment with you is like a beautiful dream. You make my world brighter, my heart fuller. I love you more than words can say. <br> Forever yours,<br> <strong>Keotshepile</strong> ❤️
                     </div>
-                    <div class="yes-no">
-                        <button class="btn" id="yes-btn">Will you be my Valentine? ❤️</button>
-                        <button class="btn" id="no-btn">NO 💔</button>
+                    
+                    <!-- Question for the user -->
+                    <div style="font-size: 2.8rem; font-family: 'Great Vibes'; color: #d62828; margin: 20px 0;">
+                        Will you be my Valentine?
                     </div>
+                    
+                    <!-- YES/NO Buttons -->
+                    <div class="yes-no-buttons">
+                        <button class="btn" id="yes-valentine-btn">YES! 💖</button>
+                        <button class="btn" id="no-valentine-btn">NO 💔</button>
+                    </div>
+                    
+                    <!-- Response message area -->
+                    <div id="valentine-response"></div>
                 </div>
             </section>
         </div>
         <footer>Made with Love by Keotshepile Keikabile</footer>
     </div>
 
-    <!-- confetti canvas -->
     <canvas id="confetti-canvas" class="confetti-canvas" style="display: none;"></canvas>
 
     <script>
         (function() {
-            // ----- initial elements -----
+            // ----- ELEMENTS -----
             const landing = document.getElementById('landing');
             const codeLock = document.getElementById('code-lock');
             const mainSite = document.getElementById('main-site');
@@ -234,48 +267,47 @@
             const unlockBtn = document.getElementById('unlock-btn');
             const codeInput = document.getElementById('code-input');
             const codeFeedback = document.getElementById('code-feedback');
-            const correctCode = "24'08'23";
+            const correctCode = "24'08'23"; // You can change this to any code you like
 
-            // music 
+            // ----- TSoul - Best of Me AUDIO CONTROL -----
             const music = document.getElementById('bg-music');
             const musicBtn = document.getElementById('music-toggle');
             let musicPlaying = false;
-            let musicAttempted = false;
 
-            // MUSIC AUTOPLAY FALLBACK: try play on load, then on any user interaction if needed
-            function attemptMusicPlay() {
-                if (!musicPlaying) {
-                    music.play().then(() => {
-                        musicPlaying = true;
-                        musicBtn.style.background = '#c44569';
-                    }).catch(e => console.log('autoplay blocked, will start after click'));
-                }
-            }
-            // initial autoplay attempt
-            attemptMusicPlay();
-
-            // also try on beginBtn click (landing) and any unlock attempt / body click
-            beginBtn.addEventListener('click', () => {
-                attemptMusicPlay();
-            });
-
-            // manual toggle
-            musicBtn.addEventListener('click', ()=>{
-                if(musicPlaying) { 
-                    music.pause(); 
-                    musicBtn.style.background = '#ff4d6d'; 
-                    musicPlaying = false;
-                } else { 
-                    music.play().catch(e=>console.log); 
-                    musicBtn.style.background = '#c44569'; 
+            // Function to play music
+            function playMusic() {
+                music.play().then(() => {
                     musicPlaying = true;
-                }
-            });
+                    musicBtn.style.background = '#c44569';
+                    musicBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                }).catch(e => console.log('Playback prevented until user interaction'));
+            }
 
-            // floating hearts & petals generator
+            // Function to pause music
+            function pauseMusic() {
+                music.pause();
+                musicPlaying = false;
+                musicBtn.style.background = '#ff4d6d';
+                musicBtn.innerHTML = '<i class="fas fa-music"></i>';
+            }
+
+            // Music toggle button
+            if (musicBtn) {
+                musicBtn.addEventListener('click', () => {
+                    if (musicPlaying) {
+                        pauseMusic();
+                    } else {
+                        playMusic();
+                    }
+                });
+            }
+
+            // ----- FLOATING HEARTS -----
             function createFloaters() {
                 const heartsDiv = document.getElementById('floating-hearts');
                 const petalsDiv = document.getElementById('petals');
+                if (!heartsDiv || !petalsDiv) return;
+                
                 for(let i=0;i<18;i++) {
                     let heart = document.createElement('div');
                     heart.className = 'heart-float';
@@ -290,46 +322,60 @@
                     petal.className = 'petal';
                     petal.style.left = Math.random()*100 + '%';
                     petal.style.animationDuration = (7+Math.random()*8)+'s';
-                    petal.style.background = `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ff${Math.floor(130+Math.random()*50).toString(16)}"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat center/contain`;
                     petalsDiv.appendChild(petal);
                 }
             }
             createFloaters();
 
-            // transition: landing -> code lock
-            beginBtn.addEventListener('click', ()=>{
-                landing.classList.remove('active-section');
-                landing.classList.add('hidden-section');
-                codeLock.classList.remove('hidden-section');
-                codeLock.classList.add('active-section');
-            });
+            // ----- TRANSITIONS -----
+            if (beginBtn) {
+                beginBtn.addEventListener('click', () => {
+                    // Try to play music on first click
+                    playMusic();
+                    
+                    landing.classList.remove('active-section');
+                    landing.classList.add('hidden-section');
+                    codeLock.classList.remove('hidden-section');
+                    codeLock.classList.add('active-section');
+                });
+            }
 
-            // secret code check
-            unlockBtn.addEventListener('click', ()=>{
-                if(codeInput.value.trim().toUpperCase() === correctCode) {
-                    codeFeedback.innerHTML = '❤️‍🔥 correct! loading paradise ❤️‍🔥';
-                    for(let i=0;i<15;i++) { 
-                        let h = document.createElement('div');
-                        h.className = 'heart-float';
-                        h.innerHTML = '💥❤️💥';
-                        h.style.left = '50%'; h.style.top='50%'; h.style.animation='floatUp 2s';
-                        document.body.appendChild(h);
-                        setTimeout(()=>h.remove(),2000);
+            // ----- CODE UNLOCK -----
+            if (unlockBtn) {
+                unlockBtn.addEventListener('click', () => {
+                    if(codeInput.value.trim().toUpperCase() === correctCode) {
+                        codeFeedback.innerHTML = '❤️‍🔥 correct! loading paradise ❤️‍🔥';
+                        
+                        // Heart explosion effect
+                        for(let i=0;i<15;i++) {
+                            let h = document.createElement('div');
+                            h.className = 'heart-float';
+                            h.innerHTML = '💥❤️💥';
+                            h.style.left = '50%'; 
+                            h.style.top='50%'; 
+                            h.style.animation='floatUp 2s';
+                            document.body.appendChild(h);
+                            setTimeout(()=>h.remove(),2000);
+                        }
+                        
+                        setTimeout(() => {
+                            codeLock.classList.remove('active-section');
+                            codeLock.classList.add('hidden-section');
+                            mainSite.style.display = 'block';
+                            mainSite.classList.add('active-section');
+                            
+                            // Ensure music is playing after unlock
+                            if (!musicPlaying) {
+                                playMusic();
+                            }
+                        }, 800);
+                    } else {
+                        codeFeedback.innerText = 'Oops! That\'s not the right code 😘 Try again.';
                     }
-                    setTimeout(()=>{
-                        codeLock.classList.remove('active-section');
-                        codeLock.classList.add('hidden-section');
-                        mainSite.style.display = 'block';
-                        mainSite.classList.add('active-section');
-                    },800);
-                } else {
-                    codeFeedback.innerText = 'Oops! That’s not the right code 😘 Try again.';
-                }
-                // try music again
-                attemptMusicPlay();
-            });
+                });
+            }
 
-            // populate message cards (unchanged)
+            // ----- MESSAGE CARDS -----
             const messages = [
                 "You are my favorite person in the world ❤️",
                 "I love you more every day 🌹",
@@ -338,15 +384,17 @@
                 "You're my dream come true ✨"
             ];
             const cardGrid = document.getElementById('card-grid');
-            messages.forEach(msg => {
-                const card = document.createElement('div');
-                card.className = 'flip-card';
-                card.innerHTML = `<div class="flip-inner"><div class="flip-front"><span style="font-size:3rem;">❤️</span><br>click me</div><div class="flip-back">${msg}</div></div>`;
-                card.addEventListener('click', ()=> card.classList.toggle('flipped'));
-                cardGrid.appendChild(card);
-            });
+            if (cardGrid) {
+                messages.forEach(msg => {
+                    const card = document.createElement('div');
+                    card.className = 'flip-card';
+                    card.innerHTML = `<div class="flip-inner"><div class="flip-front"><span style="font-size:3rem;">❤️</span><br>click me</div><div class="flip-back">${msg}</div></div>`;
+                    card.addEventListener('click', ()=> card.classList.toggle('flipped'));
+                    cardGrid.appendChild(card);
+                });
+            }
 
-            // ===== NEW MEMORIES ARRAY (photo gallery) =====
+            // ----- MEMORIES WITH YOUR IMAGES -----
             const memoriesPhotos = [
                 { src: "us1.jpg", caption: "Our first date ❤️" },
                 { src: "her1.jpg", caption: "My beautiful queen 💖" },
@@ -356,97 +404,189 @@
                 { src: "her2.jpg", caption: "Angel 😇" }
             ];
 
-            // Since actual image files may not exist, we show romantic placeholders with emoji/color. In real use, replace src.
-     const memoriesContainer = document.getElementById('memories-grid-container');
-memoriesPhotos.forEach((item, index) => {
-    const memDiv = document.createElement('div');
-    memDiv.className = 'memory-item';
-    
-    // Create actual img element instead of placeholder div
-    const img = document.createElement('img');
-    img.className = 'memory-img';
-    img.src = item.src;
-    img.alt = item.caption;
-    img.loading = 'lazy'; // for better performance
-    
-    // Add error handling in case image doesn't load
-    img.onerror = function() {
-        this.style.display = 'none';
-        this.parentElement.innerHTML += '<div class="memory-img" style="background: linear-gradient(145deg, #ffb6c1, #ffd9e2); display: flex; align-items: center; justify-content: center; font-size: 4rem; color: #b5496b;">📸❤️</div>';
-    };
-    
-    // Create caption
-    const caption = document.createElement('div');
-    caption.className = 'memory-caption';
-    caption.textContent = item.caption;
-    
-    // Assemble the memory item
-    memDiv.appendChild(img);
-    memDiv.appendChild(caption);
-    memoriesContainer.appendChild(memDiv);
-});
-
-            // interactive buttons feedback (unchanged)
-            document.getElementById('surpriseBtn').addEventListener('click', ()=> showFun('🎀 a little gift: you are amazing!'));
-            document.getElementById('kissBtn').addEventListener('click', ()=> showFun('😘 *sends you a thousand kisses*'));
-            document.getElementById('hugBtn').addEventListener('click', ()=> showFun('🤗 tight virtual hug!'));
-            document.getElementById('lovemeterBtn').addEventListener('click', ()=> showFun('💗 love meter: ∞ / 100 💗'));
-
-            function showFun(text) {
-                document.getElementById('fun-feedback').innerHTML = text + ' ❤️';
-                setTimeout(()=>document.getElementById('fun-feedback').innerHTML = '', 2000);
+            const memoriesContainer = document.getElementById('memories-grid-container');
+            if (memoriesContainer) {
+                memoriesPhotos.forEach((item) => {
+                    const memDiv = document.createElement('div');
+                    memDiv.className = 'memory-item';
+                    
+                    // Create actual img element
+                    const img = document.createElement('img');
+                    img.className = 'memory-img';
+                    img.src = item.src;
+                    img.alt = item.caption;
+                    img.loading = 'lazy';
+                    
+                    // Handle missing images gracefully
+                    img.onerror = function() {
+                        this.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="%23ffb6c1"><rect width="100" height="100" fill="%23ffe2eb"/><text x="50" y="55" font-size="40" text-anchor="middle" fill="%23b5496b">📸</text></svg>';
+                    };
+                    
+                    const caption = document.createElement('div');
+                    caption.className = 'memory-caption';
+                    caption.textContent = item.caption;
+                    
+                    memDiv.appendChild(img);
+                    memDiv.appendChild(caption);
+                    memoriesContainer.appendChild(memDiv);
+                });
             }
 
-            // love quiz (unchanged)
+            // ----- INTERACTIVE BUTTONS -----
+            const surpriseBtn = document.getElementById('surpriseBtn');
+            const kissBtn = document.getElementById('kissBtn');
+            const hugBtn = document.getElementById('hugBtn');
+            const lovemeterBtn = document.getElementById('lovemeterBtn');
+            const funFeedback = document.getElementById('fun-feedback');
+
+            function showFun(text) {
+                if (funFeedback) {
+                    funFeedback.innerHTML = text + ' ❤️';
+                    setTimeout(() => funFeedback.innerHTML = '', 2000);
+                }
+            }
+
+            if (surpriseBtn) surpriseBtn.addEventListener('click', ()=> showFun('🎀 a little gift: you are amazing!'));
+            if (kissBtn) kissBtn.addEventListener('click', ()=> showFun('😘 *sends you a thousand kisses*'));
+            if (hugBtn) hugBtn.addEventListener('click', ()=> showFun('🤗 tight virtual hug!'));
+            if (lovemeterBtn) lovemeterBtn.addEventListener('click', ()=> showFun('💗 love meter: ∞ / 100 💗'));
+
+            // ----- LOVE QUIZ -----
             const quizOptions = document.querySelectorAll('.quiz-option');
             const quizFeedback = document.getElementById('quiz-feedback');
-            quizOptions.forEach(opt => {
-                opt.addEventListener('click', (e) => {
-                    let val = e.target.getAttribute('data-points');
-                    if(val === '10') quizFeedback.innerText = 'Aww, let’s make it infinite! 💕';
-                    else if(val === '100') quizFeedback.innerText = 'Good, but I love you more! 😉';
-                    else if(val === '1000') { quizFeedback.innerText = 'YES, infinity it is!! ♾️💖'; 
-                        heartsConfetti(10);
+            if (quizOptions.length > 0 && quizFeedback) {
+                quizOptions.forEach(opt => {
+                    opt.addEventListener('click', (e) => {
+                        let val = e.target.getAttribute('data-points');
+                        if(val === '10') quizFeedback.innerText = 'Aww, let\'s make it infinite! 💕';
+                        else if(val === '100') quizFeedback.innerText = 'Good, but I love you more! 😉';
+                        else if(val === '1000') { 
+                            quizFeedback.innerText = 'YES, infinity it is!! ♾️💖'; 
+                            heartsConfetti(10);
+                        }
+                    });
+                });
+            }
+
+            // ----- VALENTINE'S YES/NO BUTTONS WITH ALERT -----
+            const yesValentineBtn = document.getElementById('yes-valentine-btn');
+            const noValentineBtn = document.getElementById('no-valentine-btn');
+            const valentineResponse = document.getElementById('valentine-response');
+
+            // YES button - with alert
+            if (yesValentineBtn) {
+                yesValentineBtn.addEventListener('click', function() {
+                    // SHOW ALERT FIRST
+                    alert('Happy valentines day my Babe Remo❤️🫀.  Baby, you are the best thing that has ever happened to me❤️. You make my life feel complete, and every day with you feels like a blessing. When I’m with you, I forget all my stress and worries because you give me peace. Your smile is my favorite thing in the world, and your love is something I will never take for granted😊❤️‍🩹. I love the way you care, the way you talk, the way you laugh, and the way you make me feel important. I don’t just love you for today, I love you for tomorrow and for every day that comes after. I want to build memories with you, grow with you, and love you in the most real way possible❤️‍🩹. I’m proud of you, I’m proud of us, and I’ll always choose you. ❤️🥰 Keotshepile wao rata neh💍❤️');
+                    
+                    // Show beautiful response
+                    valentineResponse.innerHTML = '🎉 YAY! I love you so much! ❤️<br>💖 You just made my day! 💖<br>💞 Forever and ever! 💞';
+                    
+                    // Celebration confetti
+                    heartsConfetti(50);
+                    
+                    // Add celebration effect to the card
+                    const loveCard = document.querySelector('.love-letter-card');
+                    if (loveCard) {
+                        loveCard.classList.add('valentine-celebration');
+                        setTimeout(() => {
+                            loveCard.classList.remove('valentine-celebration');
+                        }, 1000);
+                    }
+                    
+                    // Change button appearance
+                    this.style.transform = 'scale(1.2)';
+                    this.innerHTML = '💕 FOREVER! 💕';
+                    
+                    // Make NO button disappear playfully
+                    if (noValentineBtn) {
+                        noValentineBtn.style.opacity = '0.3';
+                        noValentineBtn.style.transform = 'scale(0.8)';
+                        noValentineBtn.disabled = true;
+                        noValentineBtn.style.cursor = 'not-allowed';
+                    }
+                    
+                    // Create floating YES hearts
+                    for (let i = 0; i < 15; i++) {
+                        setTimeout(() => {
+                            const heart = document.createElement('div');
+                            heart.innerHTML = '💖';
+                            heart.style.position = 'fixed';
+                            heart.style.left = Math.random() * 100 + '%';
+                            heart.style.top = '80%';
+                            heart.style.fontSize = (2 + Math.random() * 3) + 'rem';
+                            heart.style.zIndex = '10000';
+                            heart.style.animation = 'floatUp 2s ease-out';
+                            heart.style.pointerEvents = 'none';
+                            document.body.appendChild(heart);
+                            
+                            setTimeout(() => heart.remove(), 2000);
+                        }, i * 100);
                     }
                 });
-            });
+            }
 
-            // final letter YES / NO (unchanged)
-            const yesBtn = document.getElementById('yes-btn');
-            const noBtn = document.getElementById('no-btn');
-            yesBtn.addEventListener('click', ()=>{
-                heartsConfetti(30);
-                alert('Happy valentines day my Babe Remo❤️🫀.  Baby, you are the best thing that has ever happened to me❤️. You make my life feel complete, and every day with you feels like a blessing. When I’m with you, I forget all my stress and worries because you give me peace. Your smile is my favorite thing in the world, and your love is something I will never take for granted😊❤️‍🩹. I love the way you care, the way you talk, the way you laugh, and the way you make me feel important. I don’t just love you for today, I love you for tomorrow and for every day that comes after. I want to build memories with you, grow with you, and love you in the most real way possible❤️‍🩹. I’m proud of you, I’m proud of us, and I’ll always choose you. ❤️🥰 Keotshepile wao rata neh💍❤️');
-            });
-            noBtn.addEventListener('mouseenter', ()=>{
-                let x = Math.random() * (window.innerWidth-150);
-                let y = Math.random() * (window.innerHeight-100);
-                noBtn.style.position = 'fixed';
-                noBtn.style.left = x + 'px';
-                noBtn.style.top = y + 'px';
-            });
-            noBtn.addEventListener('click', ()=>{
-                heartsConfetti(15);
-                alert('you finally said YES! 💕');
-                yesBtn.click();
-            });
+            // NO button - playful response (runs away)
+            if (noValentineBtn) {
+                noValentineBtn.addEventListener('mouseenter', function() {
+                    // Make NO button run away
+                    const x = Math.random() * (window.innerWidth - 250);
+                    const y = Math.random() * (window.innerHeight - 200);
+                    
+                    this.style.position = 'fixed';
+                    this.style.left = x + 'px';
+                    this.style.top = y + 'px';
+                    this.style.zIndex = '1001';
+                });
+                
+                noValentineBtn.addEventListener('click', function() {
+                    valentineResponse.innerHTML = '😢 Oh no! But... wait... YOU CAN\'T SAY NO! ❤️<br>💝 I know you really mean YES! 💝<br>💞 Click YES, my love! 💞';
+                    
+                    // Still do confetti but with playful tone
+                    heartsConfetti(20);
+                    
+                    // Make the YES button pulse
+                    if (yesValentineBtn) {
+                        yesValentineBtn.classList.add('pulse-animation');
+                    }
+                    
+                    // Reset NO button position after click
+                    setTimeout(() => {
+                        this.style.position = 'relative';
+                        this.style.left = 'auto';
+                        this.style.top = 'auto';
+                    }, 500);
+                });
+            }
 
-            // hearts confetti explosion (unchanged)
+            // ----- CONFETTI -----
             function heartsConfetti(count) {
                 const canvas = document.getElementById('confetti-canvas');
+                if (!canvas) return;
+                
                 canvas.style.display = 'block';
                 const ctx = canvas.getContext('2d');
-                canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+                canvas.width = window.innerWidth; 
+                canvas.height = window.innerHeight;
                 let particles = [];
                 for(let i=0;i<count;i++) {
-                    particles.push({ x: Math.random()*canvas.width, y: Math.random()*canvas.height, size: 20+Math.random()*30, speedY: Math.random()*3+2, speedX: (Math.random()-0.5)*2, heart:'❤️' });
+                    particles.push({ 
+                        x: Math.random()*canvas.width, 
+                        y: Math.random()*canvas.height, 
+                        speedY: Math.random()*3+2, 
+                        speedX: (Math.random()-0.5)*2 
+                    });
                 }
+                
                 function draw() {
+                    if (!ctx) return;
                     ctx.clearRect(0,0,canvas.width,canvas.height);
                     ctx.font = '30px Arial';
+                    ctx.fillStyle = '#ff4d6d';
                     for(let p of particles) {
                         ctx.fillText('❤️', p.x, p.y);
-                        p.y += p.speedY; p.x += p.speedX;
+                        p.y += p.speedY; 
+                        p.x += p.speedX;
                     }
                     particles = particles.filter(p => p.y < canvas.height+50);
                     if(particles.length>0) requestAnimationFrame(draw);
@@ -454,15 +594,18 @@ memoriesPhotos.forEach((item, index) => {
                 }
                 draw();
             }
+
+            // Debug - check if YES button exists
+            setTimeout(() => {
+                const yesCheck = document.getElementById('yes-valentine-btn');
+                console.log('YES button found:', yesCheck);
+                if (!yesCheck) {
+                    console.log('YES BUTTON IS MISSING!');
+                } else {
+                    console.log('YES button is ready to answer!');
+                }
+            }, 1000);
         })();
     </script>
-    <style>
-        #no-btn { transition: all 0.2s; }
-        .quiz-option { margin: 10px auto; width: fit-content; padding: 10px 40px; }
-        /* memory images: for real use, set object-fit cover */
-        .memory-img {
-            font-size: 3.5rem;
-        }
-    </style>
 </body>
 </html>
